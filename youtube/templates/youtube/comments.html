@@ -1,0 +1,24 @@
+{% load date_filters %}
+<h1>Show comments</h1>
+{% if comments_disabled %}
+<p>Comments are disabled </p>
+{% else %}
+<form action="{% url 'get_comments' video_id %}" method="POST"> 
+    {% csrf_token %}
+    <textarea name='comment' placeholder="Add your comment"></textarea>
+    <button>Add comment</button>
+</form>
+
+<ul>
+    {% for comment in comments %}
+    <li>
+        <p>{{ comment.snippet.topLevelComment.snippet.textDisplay }}</p> 
+        <div> 
+            <img src='{{ comment.snippet.topLevelComment.snippet.authorProfileImageUrl }}'>
+            <a href="{{ comment.snippet.topLevelComment.snippet.authorChannelUrl }}" target='_blank'>{{ comment.snippet.topLevelComment.snippet.authorDisplayName }}</a>
+        </div>
+        <p>{{ comment.snippet.topLevelComment.snippet.publishedAt|format_date}}</p> 
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
