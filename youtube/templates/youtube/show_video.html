@@ -1,11 +1,23 @@
+{% extends 'youtube/base.html' %}
+{% block title %}
+    Show video
+{% endblock %}
+{% block content %}
 <h1>Show video</h1>
-{% for video in videos %}
-<iframe src='https://www.youtube.com/embed/{{video.id.videoId}}' width="400" height="300" type="application/x-shockwave-flash">
-</iframe>
-<div>
-    <p>Views: {{video.statistics.viewCount}}</p>
-    <p>Likes: {{video.statistics.likeCount}}</p>
-    <p>Dislikes: {{video.statistics.dislikeCount}}</p>
-    <p>Comments: {{video.statistics.commentCount}}<a href="{% url 'get_comments' video.id.videoId %}">Show comments</a></p>   
+<div class='d-flex flex-wrap justify-content-between'>
+    {% for video in videos %}
+    <div class='md-8'>
+        <iframe src='https://www.youtube.com/embed/{{video.id.videoId}}' width="400" height="300" type="application/x-shockwave-flash">
+        </iframe>
+        <div class='video-info'>
+            <p>Views: {{video.statistics.viewCount}}</p>
+            <p>Likes: {{video.statistics.likeCount}}</p>
+            <p>Dislikes: {{video.statistics.dislikeCount}}</p>
+            <p>Comments: {{video.statistics.commentCount}}</p>
+            <a href="{% url 'get_comments' video.id.videoId %}">Show comments</a>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
+{% endblock %}
