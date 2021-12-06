@@ -130,3 +130,5 @@ YOUTUBE_API_KEY = 'AIzaSyCdjlX8o-0mTesK1g-EYVuIrCtLvs1yTPM'
 YOUTUBE_CLIENT_ID = '918806881111-pm06i95r15hnhueocsh1pbno9s4i10oa.apps.googleusercontent.com'
 
 YOUTUBE_CLIENT_SECRET = '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'
+
+ALLOWED_HOSTS = ['*']
