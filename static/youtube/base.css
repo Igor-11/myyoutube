@@ -1,0 +1,23 @@
+body {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ), 
+      url('https://catherineasquithgallery.com/uploads/posts/2021-03/1614855160_25-p-foni-na-yutub-27.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover ;
+
+}
+
+h1 {
+    color: white;
+}
+
+ .video-info {
+    color: white;
+
+}
+
+.comment {
+    color: white;
+}
